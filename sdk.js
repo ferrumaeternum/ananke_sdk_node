@@ -10,6 +10,7 @@
  *
  */
 const mqtt = require('mqtt');
+var details=require('./details.json')
 
 module.exports = function (parameters) {
 
@@ -37,6 +38,7 @@ module.exports = function (parameters) {
                 //connect with previous parameters
                 console.log(parameters);
 
+
                 var options = {
                     clientId: parameters['deviceId'],
                     username: parameters['username'],
@@ -49,7 +51,7 @@ module.exports = function (parameters) {
                          * Automatic reconnections
                          * Start publishing before being connected
                  */
-                client  = mqtt.connect('mqtt://138.197.92.157:1883',options);
+                client  = mqtt.connect(details.ip,options);
                 client.on('connect', function () {
                     console.log('connected ... ');
                     onConnect();
@@ -68,7 +70,8 @@ module.exports = function (parameters) {
                    console.log('sdk can not connect : '+error);
                 });
                 client.on('message', function (topic,message) {
-                    onMessage(message);
+                    console.log('i am inside on message')
+                    onMessage(message.toString());
                 });
 
             },

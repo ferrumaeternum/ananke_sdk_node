@@ -1,14 +1,15 @@
 {
-  "name": "ananke_sdk",
+  "name": "ananke_node_sdk",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "This SDK is  used to connect to  Ananke IoT",
+  "main": "sdk.js",
+  "dependencies": {
+    "mqtt": "^2.14.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "mqtt": "^2.14.0"
-  }
+  "author": "ESol Sri Lanka",
+  "license": "ISC"
 }
